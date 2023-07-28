@@ -201,6 +201,30 @@ const institPageContent = buildCollection({
     }
 });
 
+export type TAfiliado = {
+    nome: string,
+    ativo: boolean,
+    foto: string,
+    rg: string,
+    cpf: string,
+    naturalidade: string,
+    insc: string,
+    matricula: string,
+    lote: string,
+    filiacao: string,
+    email:string,
+    senha: string,
+    telefone: string,
+    nascimento: string,
+    endereco: string,
+    uf: string,
+    cidade: string,
+    cep: string,
+    formacao: string,
+    cargo: string,
+    admissao: string,
+    assinatura: string
+}
 const afiliados = buildCollection({
     icon: "ContactMail",
     path: "afiliados",
@@ -344,6 +368,15 @@ const afiliados = buildCollection({
     }
 })
 
+export type TPublicacao = {
+    titulo: string,
+    data: string,
+    categories: string[],
+    destaque: boolean,
+    texto: string,
+    capa: string,
+    galeria: string[]
+}
 const publicacaoCollection = buildCollection({
     icon: "Article",
     path: "publicacao",

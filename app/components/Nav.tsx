@@ -2,6 +2,7 @@
 
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 import firebase_app from "../config";
 
 export default () => {
@@ -33,17 +34,17 @@ export default () => {
     }
     const toggleMenu = () => {
         document.querySelector('#navbar-default')?.classList.toggle('hidden')
-    }
+    } 
     return (
         <>
             <div className="w-full bg-accent-green py-6">
-                <img src="logo completa branca.png" alt="" className={`mx-auto my-8`} style={{ maxHeight: '100px' }} /></div>
+                <Link href="/"><img src="logo completa branca.png" alt="" className={`mx-auto my-8`} style={{ maxHeight: '100px' }} /></Link></div>
             <nav style={{border: "#4CAF50 solid 1px"}} className="drop-shadow-4xl bg-accent-green border-gray-200 dark:bg-gray-900  sticky top-0 z-50">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto">
 
-                    <a href="/" className="flex items-center pl-3 absolute left-4" style={{ transition: "all 0.25s ease", opacity: scrollPosition > 120 ? 1 : 0 }}>
+                    <Link href="/" className="flex items-center pl-3 absolute left-4" style={{ transition: "all 0.25s ease", opacity: scrollPosition > 120 ? 1 : 0 }}>
                         <img src="/logo incompleta branca.png" className="h-8 mr-3" alt="Simmp Logo" />
-                    </a>
+                    </Link>
                     <button data-collapse-toggle="navbar-default" onClick={toggleMenu} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
                         <span className="sr-only">Abrir menu</span>
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 14">
@@ -60,7 +61,7 @@ export default () => {
                                     ["/Institucional", "Institucional"],
                                 ].map((link, index) => {
                                     return (<li key={`navlink_${index}`} className="p-4 mx-0 hover:bg-darker-accent-green">
-                                        <a href={`${link[0]}`} className="block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">{link[1]}</a>
+                                        <Link href={`${link[0]}`} className="block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">{link[1]}</Link>
                                     </li>)
                                 })
                             }
