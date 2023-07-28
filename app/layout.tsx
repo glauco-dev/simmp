@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
 import Head from 'next/head'
 import Nav from './components/Nav'
+import "./styles.sass"
+import 'leaflet/dist/leaflet.css'
+ import dynamic from "next/dynamic"
+
+const Footer = dynamic(() => import("./components/Footer"), { ssr:false })
 
 export const metadata: Metadata = {
   title: 'SIMMP - Sindicato do Magistério Municipal Público de Vitória da Conquista',
@@ -19,7 +24,10 @@ export default function RootLayout({
       </Head>
       <body>
         <Nav></Nav>
-        {children}</body>
+        <div id="slot">
+          {children}
+        </div>
+      </body>
     </html>
   )
 }

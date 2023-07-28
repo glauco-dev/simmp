@@ -10,6 +10,7 @@ import {
     EntityReference,
     FirebaseCMSApp
 } from "firecms";
+import CMSTextEditor from '@/app/components/CMSTextEditor'
 
 import "typeface-rubik";
 import "@fontsource/ibm-plex-mono";
@@ -33,7 +34,318 @@ const firebaseConfig = {
 
 };
 
+const banners = buildCollection({
+    icon: "MovieCreation",
+    path: "banners",
+    name: "Banners",
+    permissions: {
+        edit: true,
+        create: false,
+        delete: true
+    },
+    properties: {
+        galeria: {
+            name: "Galeria de imagens",
+            dataType: "array",
+            of: {
+                dataType: "string",
+                storage: {
+                    storagePath: "imagens",
+                    acceptedFiles: ["image/*"],
+                    metadata: {
+                        cacheControl: "max-age=1000000"
+                    },
+                    storeUrl: true
+                }
+            }
+        },
+    }
+})
+const institPageContent = buildCollection({
+    icon: "AccountBalance",
+    path: "institucional",
+    name: "Conteúdo Institucional",
+    permissions: {
+        edit: true,
+        create: false,
+        delete: true
+    },
+    properties: {
+        historia: {
+            name: "História",
+            description: "Texto sobre a história do sindicato",
+            dataType: "string",
+            Field: CMSTextEditor,
+        },
+        diretoria: {
+            name: "Diretoria",
+            description: "Conteúdo sobre diretoria do sindicato",
+            dataType: "string",
+            Field: CMSTextEditor,
+        },
+        estatuto: {
+            name: "Estatuto",
+            description: "Estatuto do sindicato listado",
+            dataType: "string",
+            storage: {
+                storagePath: "estatutos",
+                acceptedFiles: ['application/pdf'],
+                metadata: {
+                    cacheControl: "max-age=1000000"
+                },
+                fileName: (context) => {
+                    return context.file.name;
+                },
+                storeUrl: true
+            }
+        },
+
+        legislacao: {
+            name: "Legislação",
+            dataType: "array",
+            of: {
+                dataType: "map",
+                properties: {
+                    nome: {
+                        name: "Nome de acompanhamento",
+                        dataType: "string"
+                    },
+                    link: {
+                        name: "Link",
+                        dataType: "string"
+                    },
+                    arquivo: {
+                        name: "Arquivo",
+                        dataType: "string",
+                        storage: {
+                            storagePath: "legislação",
+                            acceptedFiles: ['application/pdf'],
+                            metadata: {
+                                cacheControl: "max-age=1000000"
+                            },
+                            fileName: (context) => {
+                                return context.file.name;
+                            },
+                            storeUrl: true
+                        }
+                    },
+                    
+                }
+                
+            }
+        },
+
+        escolasECreches: {
+            name: "Escolas e Creches",
+            description: "Escolas e Creches associadas ao sindicato",
+            dataType: "array",
+            of: {
+                dataType: "map",
+                properties: {
+                    nome: {
+                        name: "Nome de acompanhamento",
+                        dataType: "string"
+                    },
+                    arquivo: {
+                        name: "Arquivo",
+                        dataType: "string",
+                        storage: {
+                            storagePath: "crecheEscola",
+                            acceptedFiles: ['application/pdf'],
+                            metadata: {
+                                cacheControl: "max-age=1000000"
+                            },
+                            fileName: (context) => {
+                                return context.file.name;
+                            },
+                            storeUrl: true
+                        }
+                    },
+                    
+                }
+            }
+        },
+
+        convenios: {
+            name: "Convênios",
+            description: "Convênios para afiliados",
+            dataType: "array",
+            of:{
+                dataType: "map",
+                name: "Convênio",
+                properties: {
+                    convenioNome: {
+                        name: "Convênio",
+                        dataType: "string"
+                    },
+                    endreco: {
+                        name: "Endereço",
+                        dataType: "string"
+                    },
+                    telefone: {
+                        name: "Telefone",
+                        dataType: "string"
+                    }
+                },
+                expanded: true
+            }
+        },
+
+        vantagensAfiliado:{
+            name: "Vantagens como afiliado",
+            description:"Vantagens como afiliado ao sindicato",
+            dataType: 'string',
+            Field: CMSTextEditor,
+        }
+        
+    }
+});
+
+const afiliados = buildCollection({
+    icon: "ContactMail",
+    path: "afiliados",
+    name: "Afiliados",
+    singularName: "Afiliado",
+    permissions: {
+        edit: true,
+        create: true,
+        delete: true
+    },
+    properties: {
+        nome:{
+            name: "Nome Completo",
+            validation: { required: true },
+            dataType: "string"
+        },
+        ativo: {
+            name:"Ativo",
+            dataType: 'boolean'
+        },
+        foto:{
+            name: "Foto",
+            dataType: "string",
+            storage: {
+                storagePath: "fotos_carteiras",
+                acceptedFiles: ["image/*"],
+                metadata: {
+                    cacheControl: "max-age=1000000"
+                },
+                fileName: (context) => {
+                    return context.file.name;
+                },
+                storeUrl: true
+            }
+        },
+        rg:{
+            name: "RG",
+            validation: { required: true },
+            dataType: "string"
+        },
+        cpf: {
+            name: "CPF",
+            validation: { required: true },
+            dataType: "string"
+        },
+        naturalidade: {
+            name: "Naturalidade",
+            validation: { required: true },
+            dataType: "string"
+        },
+        insc:{
+            name: "Inscrição sindical",
+            dataType: "string"
+        },
+        matricula: {
+            name: "Matrícula",
+            validation: { required: true },
+            dataType: "string"
+        },
+        lote: {
+            name: "Lote",
+            validation: { required: true },
+            dataType: "string"
+        },
+        filiacao: {
+            name: "Filiacao",
+            validation: { required: true },
+            dataType: "string"
+        },
+        email: {
+            name: "Email",
+            validation: { required: true },
+            dataType: "string"
+        },
+        senha: {
+            name: "Senha",
+            validation: { required: true },
+            dataType: "string"
+        },
+        telefone: {
+            name: "Telefone",
+            validation: { required: true },
+            dataType: "string"
+        }, 
+        nascimento: {
+            name: "Nascimento",
+            validation: { required: true },
+            dataType: "string"
+        },
+        endereco: {
+            name: "Endereço",
+            validation: { required: true },
+            dataType: "string"
+        },
+        uf: {
+            name: "UF",
+            validation: { required: true },
+            dataType: "string"
+        },
+        cidade: {
+            name: "Cidade",
+            validation: { required: true },
+            dataType: "string"
+        },
+        CEP: {
+            name: "CEP",
+            validation: { required: true },
+            dataType: "string"
+        },
+        formacao: {
+            name: "Formação",
+            validation: { required: true },
+            dataType: "string"
+        },
+        cargo: {
+            name: "Função",
+            validation: { required: true },
+            dataType: "string"
+        },
+        admissao: {
+            name: "Adminissão",
+            validation: { required: true },
+            dataType: "date"
+        },
+        assinatura:{
+            name: "Assinatura",
+            validation: {required: true},
+            dataType: "string",
+            storage: {
+                storagePath: "assinaturas",
+                acceptedFiles: ['application/pdf'],
+                metadata: {
+                    cacheControl: "max-age=1000000"
+                },
+                fileName: (context) => {
+                    return context.file.name;
+                },
+                storeUrl: true
+            }
+        }
+    }
+})
+
 const publicacaoCollection = buildCollection({
+    icon: "Article",
     path: "publicacao",
     name: "Publicações",
     singularName: "Publicação",
@@ -64,6 +376,7 @@ const publicacaoCollection = buildCollection({
                 dataType: "string",
                 enumValues: {
                     noticias: "Notícias",
+                    fme: "FME",
                     afiliados: "Afiliados",
                     comunicados: "Comunicados",
                     agenda: "Agenda",
@@ -78,7 +391,7 @@ const publicacaoCollection = buildCollection({
             name: "Texto",
             description: "Corpo de texto da publicação",
             dataType: "string",
-            markdown: true,
+            Field: CMSTextEditor,
         },
         capa: {
             name: "Capa",
@@ -92,7 +405,8 @@ const publicacaoCollection = buildCollection({
                 },
                 fileName: (context) => {
                     return context.file.name;
-                }
+                },
+                storeUrl: true
             }
         },
         galeria: {
@@ -106,11 +420,111 @@ const publicacaoCollection = buildCollection({
                     metadata: {
                         cacheControl: "max-age=1000000"
                     },
+                    storeUrl: true
                 }
             }
         },
 
     }
+})
+
+
+const galeriaCollection = buildCollection({
+    icon: "PhotoLibrary",
+    path: "galerias",
+    name: "Galerias do site",
+    permissions: {
+        edit: true,
+        create: true,
+        delete: true
+    },
+    properties: {
+        titulo: {
+            name: "Título",
+            description: "Título da galeria",
+            dataType: "string"
+        },
+        desc: {
+            name: "Descrição",
+            description: "Descrição da Galeria",
+            dataType: "string",
+            Field: CMSTextEditor,
+        },
+        capa: {
+            name: "Capa",
+            description: "Imagem capa da publicação",
+            dataType: "string",
+            storage: {
+                storagePath: "imagens",
+                acceptedFiles: ["image/*"],
+                metadata: {
+                    cacheControl: "max-age=1000000"
+                },
+                fileName: (context) => {
+                    return context.file.name;
+                },
+                storeUrl: true
+            }
+        },
+        galeria: {
+            name: "Galeria de imagens",
+            dataType: "array",
+            of: {
+                dataType: "string",
+                storage: {
+                    storagePath: "imagens",
+                    acceptedFiles: ["image/*"],
+                    metadata: {
+                        cacheControl: "max-age=1000000"
+                    },
+                    storeUrl: true
+                }
+            }
+        },
+    }
+})
+
+const calendarioCollection = buildCollection({
+    icon: "CalendarMonth",
+    path: "calendarios",
+    name: "Calendários anuais",
+    permissions: {
+        edit: true,
+        create: true,
+        delete: true
+    },
+    properties: {
+                    
+                    
+        titulo: {
+            name: "Título",
+            description: "Título para Calendário anual",
+            dataType: "string"
+        },
+
+        atual: {
+            name: "Atual (?)",
+            dataType: "boolean",
+        },
+
+        arquivo: {
+            name: "Arquivo",
+            dataType: "string",
+            storage: {
+                storagePath: "legislação",
+                acceptedFiles: ['application/pdf'],
+                metadata: {
+                    cacheControl: "max-age=1000000"
+                },
+                fileName: (context) => {
+                    return context.file.name;
+                },
+                storeUrl: true
+            }
+        },
+        
+    }
+    
 })
 
 
@@ -120,8 +534,6 @@ export default function CMS() {
         user,
         authController
     }) => {
-        // This is an example of retrieving async data related to the user
-        // and storing it in the controller's extra field.
         const sampleUserRoles = await Promise.resolve(["admin"]);
         authController.setExtra(sampleUserRoles);
 
@@ -131,8 +543,9 @@ export default function CMS() {
     return <FirebaseCMSApp
         name={"Simmp"}
         basePath={"/cms"}
+        logo="/logo incompleta branca.png"
         authentication={myAuthenticator}
-        collections={[publicacaoCollection]}
+        collections={[afiliados, institPageContent, publicacaoCollection, galeriaCollection, calendarioCollection]}
         firebaseConfig={firebaseConfig}
     />;
 }
