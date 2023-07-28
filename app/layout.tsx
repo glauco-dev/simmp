@@ -5,7 +5,7 @@ import "./styles.sass"
 import 'leaflet/dist/leaflet.css'
  import dynamic from "next/dynamic"
 
-const Footer = dynamic(() => import("./components/Footer"), { ssr:false })
+
 
 export const metadata: Metadata = {
   title: 'SIMMP - Sindicato do Magistério Municipal Público de Vitória da Conquista',

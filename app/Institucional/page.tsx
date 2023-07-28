@@ -3,6 +3,7 @@
 import { collection, getDocs, getFirestore, query } from "firebase/firestore";
 import { useEffect, useState } from "react"
 import firebase_app from "../config";
+import dynamic from "next/dynamic";
 
 const defaultData = {
     historia: "",
