@@ -3,6 +3,7 @@
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'
 import firebase_app from "../config";
 
 export default () => {
@@ -35,6 +36,7 @@ export default () => {
     const toggleMenu = () => {
         document.querySelector('#navbar-default')?.classList.toggle('hidden')
     }
+
     return (
         <>
             <div className="w-full bg-accent-green py-6">
@@ -76,7 +78,7 @@ export default () => {
                                             .map((arrLink, index) => {
                                                 return (
                                                     <li key={`inst_link_${index}`}>
-                                                        <a href={`Institucional/${arrLink[0]}`} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{arrLink[1]}</a>
+                                                        <Link href={`${usePathname() === "Institucional/" ? "" : "Institucional/"}${arrLink[0]}`} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{arrLink[1]}</Link>
                                                     </li>
                                                 )
                                             })}
