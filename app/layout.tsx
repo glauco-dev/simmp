@@ -21,12 +21,14 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css" rel="stylesheet" />
       </Head>
       <body>
         <Nav></Nav>
         <div id="slot">
           {children}
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
       </body>
     </html>
   )

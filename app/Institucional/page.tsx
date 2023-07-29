@@ -35,23 +35,23 @@ export default function(){
     })
     return(
         <><div id="pagina-institucional">
-            <article>
+            <article id="historia">
                 <h2>
                     História do Sindicato
                 </h2>
                 <div dangerouslySetInnerHTML={{ __html: data.historia }}></div>
             </article>
-            <article className="estatuto">
+            <article id="estatuto">
                 <h2>Acesse o novo Estatuto do SIMMP, aprovado em novembro de 2014.</h2>
                 <a href={data.estatuto}> Estatuto do Sindicato do Magistério Municipal Público de Vitória da Conquista (SIMMP/VC).</a>
             </article>
-            <article>
+            <article id="diretoria">
                 <h2>
                     Diretoria do sindicato
                 </h2>
                 <div dangerouslySetInnerHTML={{ __html: data.diretoria }}></div>
             </article>
-            <article>
+            <article id="legislação">
                 <h2>Legislação</h2>
                 <ul>
                     {data.legislacao.map(leg => {
@@ -61,9 +61,9 @@ export default function(){
                 </ul>
             </article>
 
-            <article>
+            <article id="escolas-e-creches">
                 <h2>
-                    Escolas e creches
+                    Escolas e Creches
                 </h2>
                 <ul>
                     {data.escolasECreches.map(leg => {
