@@ -16,7 +16,7 @@ a[href="https://firecms.co?utm_source=drawer"]
 section
     min-height: 60vh
 article
-    max-width: calc(100% - 2rem) !important
+    width: calc(100% - 2rem) !important
 #slot
     &>*:first-child, &> article
         max-width: 56rem !important
@@ -29,6 +29,7 @@ article
     article
         margin-bottom: 4rem
         hyphens: auto
+        margin-inline: auto
         h2
             font-size: 2rem
         p
@@ -73,6 +74,15 @@ article
     color: #0e720f
     &:hover
         color: #1bdc1b
+
+nav
+    @media (max-width: 500px) 
+        justify-content: flex-end
+
+        &> div> a
+            top: 0.5rem
+
+    
 .nav-list
     & > li:nth-child(1)
         margin-left: -0.5rem
