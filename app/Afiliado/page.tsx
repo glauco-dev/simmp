@@ -54,7 +54,7 @@ export default function Afiliado() {
                             <h2>Videos</h2>
                         </TabPanel>
                         <TabPanel>
-                            <h2>Videos</h2>
+                            <h2>Links</h2>
                         </TabPanel>
                     </TabPanels>
                 </Tabs>
