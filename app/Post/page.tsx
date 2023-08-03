@@ -1,7 +1,7 @@
 "use client"
 import PostContent from "../components/NormalPost";
 import { useRouter, useSearchParams } from 'next/navigation'
-import { PostData } from "../components/Posts";
+import { PostData } from "@/contexts/posts";
 import { useEffect, useState } from "react";
 import { collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
 import firebase_app from "../config";
