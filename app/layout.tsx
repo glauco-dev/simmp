@@ -30,7 +30,10 @@ export default function Layout({
       </Head>
       <body>
         <div id="slot">
+          <Providers>
+            <Nav></Nav>
             {children}
+          </Providers>
         </div>
         <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v17.0" nonce="MG4eJEAG"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
