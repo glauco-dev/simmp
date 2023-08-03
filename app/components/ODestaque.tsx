@@ -13,8 +13,11 @@ export default function ODestaque() {
     const router = useRouter();
 
     useEffect(() => {
-        CollectionFac("publicacao", [["destaque", "==", "true"]])()
-        .then(docs => (docs[0].exists()) ? setData({ id:docs[0].id, data: docs[0].data() } as PostData) : null)
+        CollectionFac("publicacao", [["destaque", "==", true]])()
+        .then(docs => {
+            console.log(docs[0]);
+            return (docs[0]) ? setData({ id:docs[0].id, data: docs[0].data()} as PostData) : null;
+        }) 
     }, [])
 
     if (!data.id) {

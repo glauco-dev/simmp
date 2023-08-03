@@ -1,7 +1,7 @@
 import firebase_app from '../app/config';
 import { WhereFilterOp, collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
-export type TqueryFunction = [string, WhereFilterOp, string ];
+export type TqueryFunction = [string, WhereFilterOp, string|boolean ];
 
 export const CollectionFac = (collectionName: string, qFunc: TqueryFunction[]) => async () => {
   return ((await getDocs(await QueryFac(collectionName, qFunc)())).docs);

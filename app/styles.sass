@@ -308,6 +308,16 @@ nav
     gap: 3rem
     justify-content: center
     margin-inline: auto
+
+.gallery-item 
+    opacity: 0
+    transition: opacity 250ms
+
+.gallery-item[data-carousel-item="active"]
+    opacity: 1
+    transition: opacity 250ms
+
+
 .post-card
     height: 400px
     width: 60%

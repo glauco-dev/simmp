@@ -1,12 +1,9 @@
-import { useEffect } from "react";
 import { PostData } from "@/contexts/posts";
-import { useRouter } from "next/navigation";
 import Sharing from "./sharing";
 import Breadnav from "./breadnav";
 import ImageGallery from "./ImageGallery";
 
 export default function ({ post }: { post: PostData }) {
-    console.log(post)
    
     return <article className=" mx-auto w-full max-w-4xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
         <Breadnav></Breadnav>
@@ -24,7 +21,7 @@ export default function ({ post }: { post: PostData }) {
             <p className="lead">
                 <div dangerouslySetInnerHTML={{ __html: post.data.texto }}></div>
             </p>
-            <ImageGallery imagens={post.data.galeria}></ImageGallery>
+            {post.data.galeria.length>0 && <ImageGallery imagens={post.data.galeria}></ImageGallery>}
             <Sharing></Sharing> 
         </div>
     </article>

@@ -21,7 +21,7 @@ export default function Post() {
         getDoc(q).then(snap => {
             setData({id: snap.id, data: snap.data()} as PostData);
         })
-        setTimeout(()=> router.push("#post-title"), 2000)
+        setTimeout(()=> router.push("#post-title"), 1000)
     },[])
     return data.data && 
         <><PostContent post={data}></PostContent><Footer></Footer></>

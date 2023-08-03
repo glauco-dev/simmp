@@ -7,7 +7,7 @@ import firebase_app from "../config";
 import Posts from "../components/Posts";
 import Carteirinha from "../components/Carteirinha";
 import dynamic from "next/dynamic";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { UserContext } from "@/contexts/user";
 import { InstitucionalContext } from "@/contexts/institucional";
 import Breadnav from "../components/breadnav";
@@ -24,15 +24,15 @@ export default function Afiliado() {
     const [currentUser, setUser] = useState(user);
     const [loginTab, setLoginTab] = useState(_loginTab || false);
     const { data } = useContext(InstitucionalContext);
+    const router = useRouter();
 
     useEffect(() => {
-        setUser(user)
+        setUser(user);
+        setTimeout(()=> router.push("#afiliados"), 1000);
     }, [user])
 
     if (currentUser == null)
         return <></>
-
-    console.log("da afiliados/page", currentUser)
 
     return (<>
         {currentUser.frente.nome.length > 0 ?

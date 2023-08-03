@@ -1,7 +1,7 @@
 "use client"
 
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { useContext, useEffect, useState } from "react";
+import { getAuth, signOut } from "firebase/auth";
+import { ReactNode, createContext, useContext, useEffect, useState } from "react";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import firebase_app from "../config";
@@ -10,23 +10,8 @@ import { Box, Popover, PopoverContent, PopoverTrigger } from "@chakra-ui/react";
 import { UserContext, __AUTH_CONTENT__, defaultUserData } from "../../contexts/user";
 
 export default () => {
-    const [scrollY, setScrollPosition] = useState(0);
-    const handleScroll = () => {
-        const position = window.scrollY;
-        setScrollPosition(position);
-    };
-
     const auth = getAuth(firebase_app);
     const { user, setUser } = useContext(UserContext);
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
 
     const logout = () => {
         signOut(auth).then(() => {
@@ -60,7 +45,7 @@ export default () => {
                                     {
                                         [
                                             ["/", "Início"],
-                                            ["/Afiliado", "Afiliação"],
+                                            ["/Afiliado#afiliados", "Afiliação"],
                                             ["#", "Agenda"],
                                         ].map((link, index) => {
                                             return (<li key={`navlink_${index}`} className="p-4 pt-6 pb-6 mx-0 hover:bg-darker-accent-green transition-all">
