@@ -7,7 +7,7 @@ export default function Footer() {
         <footer>
             <div className="base">
                 <div className="container mx-auto">
-                    <div className="flex flex-row justify-between">
+                    <div className="flex flex-wrap flex-row justify-between">
                         <div className="flex-col left-4 m-12 basis-1/3">
                             <h4>Calendário 2018</h4>
                             <div className="barra"></div>

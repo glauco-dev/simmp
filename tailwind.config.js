@@ -21,6 +21,7 @@ module.exports = {
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
     },
+    
     extend: {
       dropShadow: {
         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
@@ -31,6 +32,8 @@ module.exports = {
       },
       width: {
         '520px': '520px',
+        'padrao-container': '1200px',
+        'padrao-container-note': '800px'
       }
     }
   },

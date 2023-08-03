@@ -4,11 +4,31 @@
 
 *
     scroll-behavior: smooth
-    scroll-margin-top: 4rem
+    scroll-margin-top: 6rem
     
 
 a[href="https://firecms.co?utm_source=drawer"]
     display: none
+
+@font-face 
+    font-family: "glober"
+    src: url("/glober/Fontfabric - GloberRegular.otf") format("opentype")
+    
+@font-face 
+    font-family: "glober heavy"
+    src: url("/glober/Fontfabric - GloberHeavy.otf") format("opentype")
+@font-face 
+    font-family: "glober thin"
+    src: url("/glober/Fontfabric - GloberThin.otf") format("opentype")
+@font-face 
+    font-family: "glober light"
+    src: url("/glober/Fontfabric - GloberLight.otf") format("opentype")
+@font-face 
+    font-family: "glober black"
+    src: url("/glober/Fontfabric - GloberBlack.otf") format("opentype")
+@font-face 
+    font-family: "bau"
+    src: url("/Bau-Regular Regular.ttf") format("truetype")
 
 .wrapper
     width: 55ch
@@ -17,40 +37,98 @@ section
     min-height: 60vh
 article
     width: calc(100% - 2rem) !important
+    font-family: "glober"
+    margin-bottom: 7rem
+    color: #1d1d1d
+    margin-bottom: 3rem
+    h2
+        font-size: 3rem
+        margin-bottom: 1rem
+        font-family: "glober light"
+        color: #2d2d2d
+nav
+    font-family: "glober thin"
+#website-nav
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)
+
 #slot
-    &>*:first-child, &> article
-        max-width: 56rem !important
+    background-color: rgba(200, 200, 200, 0.272)
+    background-image:  url("/logo incompleta branca.png")
+    background-size:  60vw auto
+    background-position: 10% 70%
+    background-repeat: no-repeat
+    &> article
+        max-width: 1200px !important
         display: flex
         flex-wrap: wrap
         margin-inline: auto
         padding-top: 2rem
+        flex-direction: column
 
 #pagina-institucional
-    article
+    width: 60ch
+    font-family: "glober light"
+    gap: 4rem
+    padding-top: 4rem !important
+    padding-bottom: 10rem !important
+    &>article
         margin-bottom: 4rem
         hyphens: auto
         margin-inline: auto
+        gap: 2rem
+        display: flex
+        flex-direction: column
+        width: 80vw !important
+        max-width: 1200px
+
         h2
-            font-size: 2rem
+            margin-inline: auto
+            width: 100%
         p
             margin-bottom: 1rem
+            margin-inline: auto
+        div
+            gap: 1rem
+            p
+                line-height: 1.7rem
+                font-size: 1.3rem
 #landing
     width: 100%
     max-height: 100vh
     display: grid
     grid-auto-columns: 1fr
     grid-auto-rows: 1fr
-    grid-template-columns: 50%  472px
-    grid-template-rows: 1.3fr 1fr 0.7fr
+    grid-template-columns: 60%  472px
+    grid-template-rows: 50px 1.3fr 1fr 0.7fr
     gap: 1rem
-    grid-template-areas:  "destaque fme" "destaque galeria" "banners banners"
+    grid-template-areas:  "h1 h1" "destaque fme" "destaque galeria" "banners banners"
+    @media (max-width: 600px) 
+        grid-template-columns: 90vw
+        margin-inline: auto
+        justify-content: center
+        grid-template-rows: 1fr
+        grid-template-areas:    "h1    " "destaque" "galeria " "fme   "
+        padding-inline: 4vw
+        &>.destaque
+            min-height: 50vh
+
+    
+    justify-content: space-between
     & > *
         height: 100%
         width: 100%
         object-fit: contain
         object-position: center
+    #title
+        grid-area: h1
+        font-family: "glober light"
+        font-size: 2rem
+        &::before
+          border-bottom: 2px solid #121063  
     .destaque 
         grid-area: destaque
+        &:hover
+            transform: scale(1.01)
         .destaque-body
     .fme 
         grid-area: fme
@@ -81,14 +159,49 @@ nav
 
         &> div> a
             top: 0.5rem
+    #instDropMenu
+        // transform: translate(353px, 56px) !important
 
     
 .nav-list
     & > li:nth-child(1)
         margin-left: -0.5rem
 
+#sharing
+    fill: aquamarine
 .lead
     hyphens: auto
+    font-family: "glober light"
+    width: 60vw
+    max-width: 100%
+    margin-inline: auto
+    font-size: 1.3rem !important
+    line-height: 2rem
+    word-spacing: 3px
+    margin-bottom: 7rem
+    
+.common-post
+    font-size: 1.2rem
+    font-family: "glober thin"
+    max-width: 80ch
+    margin-inline: auto
+    margin-top: 5vh
+    gap: 3rem
+    display: flex
+    flex-direction: column
+    img
+        margin-bottom: 3rem
+    h1
+        hyphens: auto
+        margin-inline: auto
+        margin-top: 1rem
+        margin-bottom: 1rem
+        max-width: 60ch
+        font-family: "glober"
+        font-weight: 300
+        color: #2d2d2d
+        font-size: 3rem
+        line-height: 4rem
 
 @media print 
     *
@@ -96,6 +209,11 @@ nav
     .carteirinha
         display: block
 
+.texto-afiliar
+    h3
+        font-size: 1.5rem
+    h2
+        font-size: 2rem
 
 .carteirinha
     display: grid
@@ -186,6 +304,20 @@ nav
                 position: relative
                 margin-top: 0px
 
+.posts
+    gap: 3rem
+    justify-content: center
+    margin-inline: auto
+.post-card
+    height: 400px
+    width: 60%
+    object-fit: contain
+    object-position: center
+    margin-inline: auto
+
+#login_layout
+    gap: 2rem
+
 footer
     background-color: #0e720f
     width: 100%
@@ -196,6 +328,7 @@ footer
     margin-top: 4rem
     .leaflet-container
         width: 450px
+        max-width: 90vw
         height: 200px
         margin-inline: auto
     .row
@@ -203,3 +336,6 @@ footer
         height: 135px
         position: relative
         grid-template-columns: auto 18%
+
+.css-b1dpm3
+    position: absolute !important

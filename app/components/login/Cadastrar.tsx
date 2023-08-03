@@ -8,6 +8,9 @@ import { TsetLoginTab } from "../../Afiliado/page";
 import s from './styles.module.sass';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, doc, getDocs, getFirestore, setDoc } from "firebase/firestore";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import Breadnav from "../breadnav";
 
 
 function Page({ logar }: { logar: TsetLoginTab }) {
@@ -41,7 +44,7 @@ function Page({ logar }: { logar: TsetLoginTab }) {
     const [cadastroError, setCadastroError] = React.useState("");
     const [textoAfiliar, setTextoAfiliacao] = React.useState("");
 
-    useEffect(()=>{
+    useEffect(() => {
         const d = getDocs(collection(getFirestore(firebase_app), "institucional"));
         d.then(snap => {
             setTextoAfiliacao(snap.docs[0].data()['vantagensAfiliado'])
@@ -78,53 +81,59 @@ function Page({ logar }: { logar: TsetLoginTab }) {
     };
 
 
-    return (
-        <div className={s['form-group']}>
-            <h1 className="">Afiliação</h1>
-            <span>Já possui login? <span className="login-form-alt" onClick={(e) => { logar() }}>Então acesse aqui</span></span>
-            <div className={s['text-afiliar']} dangerouslySetInnerHTML={{__html: textoAfiliar}}></div>
-            <span>{cadastroError}</span>
+    return (<div className={s['form-group']}>
+
+        <Breadnav></Breadnav>
 
 
-            <FormGroup className={`${s['form']} ${s['form-cadastro']}`}>
-                {
-                    fields.map((field, index) => {
-                        return (
-                            <TextField
-                                data-name={field[1]}
-                                key={`field_${field[0]}_${index}`}
-                                required
-                                id="outlined-required"
-                                label={field[0]}
-                                {...(field[1] == 'confirmesenha' ? {} : register(field[1]))}
-                                placeholder={field[3]}
-                                type={field[2]=="number"? "text":field[2]}
-                                InputLabelProps={{shrink: true}}
-                                inputProps={ field[2]=="number"? {inputMode: 'numeric', pattern: '[0-9]*'}: {}}
-                                style={{
-                                    order: index
-                                }}
-                            />
-                        )
-                    })
-                }
+        <span>Já possui login? <span className="login-form-alt" onClick={(e) => { logar() }}>Então acesse aqui</span></span>
+        <span>{cadastroError}</span>
 
-                <TextField
-                    {...register("estado")}
-                    select
-                    label="Estado Civil"
-                    defaultValue="Solteiro"
-                    SelectProps={{
-                        native: true,
-                    }}
-                >
-                    <option value="Solteiro">Solteiro</option>
-                    <option value="Casado">Casado</option>
-                </TextField>
 
-                <Button type="submit" style={{ order: 20, flexBasis: "100%" }} onClick={handleSubmit(onSubmit)} variant="outlined">Cadastrar</Button>
-            </FormGroup>
-        </div>
+        <FormGroup className={`${s['form']} ${s['form-cadastro']}`}>
+
+            {
+                fields.map((field, index) => {
+                    return (
+                        <TextField
+                            data-name={field[1]}
+                            key={`field_${field[0]}_${index}`}
+                            required
+
+                            id="outlined-required"
+                            InputLabelProps={{ shrink: true }}
+
+                            label={field[0]}
+                            {...(field[1] == 'confirmesenha' ? {} : register(field[1]))}
+                            placeholder={field[3]}
+                            type={field[2] == "number" ? "text" : field[2]}
+                            inputProps={field[2] == "number" ? { inputMode: 'numeric', pattern: '[0-9]*' } : {}}
+                            style={{
+                                order: index
+                            }}
+                        />
+                    )
+                })
+            }
+
+            <TextField
+                {...register("estado")}
+                select
+                label="Estado Civil"
+                defaultValue="Solteiro"
+                SelectProps={{
+                    native: true,
+                }}
+            >
+                <option value="Solteiro">Solteiro</option>
+                <option value="Casado">Casado</option>
+            </TextField>
+
+            <Button type="submit" style={{ order: 20, flexBasis: "100%" }} onClick={handleSubmit(onSubmit)} variant="outlined">Cadastrar</Button>
+        </FormGroup>
+        <div className="texto-afiliar mt-40" dangerouslySetInnerHTML={{ __html: textoAfiliar }}></div>
+
+    </div>
     );
 }
 

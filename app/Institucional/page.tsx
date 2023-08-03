@@ -1,40 +1,22 @@
 "use client"
 
 import { collection, getDocs, getFirestore, query } from "firebase/firestore";
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import firebase_app from "../config";
 import dynamic from "next/dynamic";
+import { InstitucionalContext } from "@/contexts/institucional";
+import { useRouter } from "next/navigation";
+import Breadnav from "../components/breadnav";
 const Footer = dynamic(() => import("../components/Footer"), { ssr:false })
 
-const defaultData = {
-    historia: "",
-    diretoria: "",
-    estatuto: "",
-    escolasECreches: [
-    ],
-    legislacao: [
-
-    ],
-}
 
 export default function(){
-    const [data, setData] = useState(defaultData);
-    const db = getFirestore(firebase_app);
-
-    useEffect(()=>{
-        const q = query(collection(db, "institucional"));
-
-        getDocs(q)
-            .then(querySnap => {
-                querySnap.forEach((doc) => {
-                    // @ts-ignore
-                    setData(doc.data());
-                });
-            })
-
-    })
+    const {data} = useContext(InstitucionalContext);
+    const router = useRouter();
+    setTimeout(()=> router.push("#historia"), 2000)
     return(
-        <><div id="pagina-institucional">
+        <><article id="pagina-institucional">
+            <Breadnav></Breadnav>
             <article id="historia">
                 <h2>
                     História do Sindicato
@@ -72,6 +54,6 @@ export default function(){
                     })}
                 </ul>
             </article>
-        </div><Footer></Footer></>
+        </article><Footer></Footer></>
     )
 }
