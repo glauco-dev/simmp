@@ -22,7 +22,6 @@ export default function () {
             .then(docs => setData(docs.map(doc => ({ id: doc.id, data: doc.data() }) as PostData)));
     }, [])
 
-    console.log(data)
 
     return (
         <><article id="agenda" className="my-12 flex flex-col gap-6">
