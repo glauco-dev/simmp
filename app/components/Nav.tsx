@@ -46,7 +46,7 @@ export default () => {
                                         [
                                             ["/", "Início"],
                                             ["/Afiliado#afiliados", "Afiliação"],
-                                            ["#", "Agenda"],
+                                            ["/Agenda#agenda", "Agenda"],
                                         ].map((link, index) => {
                                             return (<li key={`navlink_${index}`} className="p-4 pt-6 pb-6 mx-0 hover:bg-darker-accent-green transition-all">
                                                 <Link href={`${link[0]}`} className="block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">{link[1]}</Link>

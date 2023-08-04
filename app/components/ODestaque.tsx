@@ -37,7 +37,7 @@ export default function ODestaque() {
                 title={data.data.titulo}
             />
             <Box
-                sx={{ display: 'flex', flexDirection: "column" }}
+                sx={{ display: 'flex', flexDirection: "column", flexBasis:"130%" }}
             >
                 <CardHeader
                     title={data.data.titulo}
@@ -47,6 +47,7 @@ export default function ODestaque() {
                     <Typography variant="body2" color="text.secondary" style={{
                         height: "100%",
                         display: "flex",
+                        fontSize: "12pt",
                         flexDirection: "column",
                         justifyContent: "space-between"
                     }}>

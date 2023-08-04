@@ -191,6 +191,9 @@ nav
     flex-direction: column
     img
         margin-bottom: 3rem
+        margin-inline: auto
+        height: 100%
+        background-size: contain
     h1
         hyphens: auto
         margin-inline: auto
@@ -309,6 +312,16 @@ nav
     justify-content: center
     margin-inline: auto
 
+#noticias
+    h2
+        font-size: 14pt
+        font-family: "glober"
+        font-weight: 100
+    &>h2
+        font-size: 2rem
+        font-family: "glober light"
+        color: #2d2d2d
+
 .gallery-item 
     opacity: 0
     transition: opacity 250ms
@@ -327,6 +340,12 @@ nav
 
 #login_layout
     gap: 2rem
+
+#afiliados
+    .posts
+        display: flex
+        gap: 3rem
+        flex-direction: column
 
 footer
     background-color: #0e720f

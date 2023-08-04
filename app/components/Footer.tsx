@@ -1,6 +1,6 @@
 "use client";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
-
+const dev = true;
 
 export default function Footer() {
     return (
@@ -48,7 +48,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <MapContainer center={[-14.85238, -40.83086]} zoom={13} scrollWheelZoom={false}>
+            {!dev && <MapContainer center={[-14.85238, -40.83086]} zoom={13} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -58,7 +58,7 @@ export default function Footer() {
                         SIMMP
                     </Popup>
                 </Marker>
-            </MapContainer>
+            </MapContainer>}
             <div className="container flex flex-row w-full px-12 mx-auto mt-10 mb-5 justify-between">
                 <div className="col l10">
                     <p>Copyright 2023 © - Todos os direitos reservados<br />

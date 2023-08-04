@@ -1,16 +1,25 @@
 "use client";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import ODestaque from "./components/ODestaque";
 import dynamic from "next/dynamic";
-import { getAuth } from "firebase/auth";
-import firebase_app from "./config";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, SimpleGrid } from "@chakra-ui/react";
+import { PostData, PostsContext } from "@/contexts/posts";
+import { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
+import PostCard from "./components/PostCard";
+import CollectionFac from "@/contexts/generics";
+import Sharing from "./components/sharing";
 
 const Footer = dynamic(() => import("./components/Footer"), { ssr:false })
 
 
 export default function Home() {
-  console.log(getAuth(firebase_app).currentUser?.email)
+  const [posts, setData]: [PostData[], Dispatch<SetStateAction<PostData[]>>] = useState([] as PostData[]);
+
+  useEffect(() => {
+      CollectionFac("publicacao", [["categories", "array-contains", "noticias"]])()
+          .then(docs => setData(docs.map(doc => ({ id: doc.id, data: doc.data() }) as PostData)));
+  }, [])
+
+  console.log(posts)
   return (
 
     <>
@@ -27,6 +36,20 @@ export default function Home() {
         </a>
         <div className="banners"></div>
       </div>
+
+      <div id="noticias">
+        <h2>
+          Notícias
+        </h2>
+        <SimpleGrid columns={[2, null, 3]} spacing='25px'>
+          {posts.map( (post, index) => (
+            <Box key={`post_${index}`} height='400px'>
+              <PostCard v={true} style={{width:"100%", flexDirection:"column"}} data={post}></PostCard>
+            </Box>
+          ))}
+        </SimpleGrid>
+      </div>
+      <Sharing></Sharing>
     </main><Footer></Footer></>
   )
 }

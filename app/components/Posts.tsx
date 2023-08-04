@@ -15,7 +15,7 @@ export default function Posts({ tag, className }: { tag: string, className:strin
 
     return <div className={className}>
         {data.map((post: PostData, index) => (
-            <PostCard key={`post_card_${index}`} data={post}></PostCard>
+            <PostCard v={false} style={{}} key={`post_card_${index}`} data={post}></PostCard>
         ))}
     </div>
 }

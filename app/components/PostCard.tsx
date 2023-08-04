@@ -1,44 +1,54 @@
 import { PostData } from "@/contexts/posts"
-import { Card, CardHeader, Box } from "@chakra-ui/react"
+import { Card, CardHeader, Box, StyleProps, Heading } from "@chakra-ui/react"
 import { CardMedia, CardContent, Typography } from "@mui/material"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { CSSProperties } from "react"
 
-export default function({data}:{data:PostData}) {
+export default function ({ data, style, v = true }: { data: PostData, style: CSSProperties, v: boolean }) {
     const router = useRouter();
     console.log(data)
     if (!data.id) {
         return <></>
     }
-    const subTexto = data.data.texto ? data.data.texto.substring(0, 200) : "";
-    const dataPub = data.data ? (new Date(data.data.data.seconds * 1000).toLocaleDateString('pt-BR', { dateStyle: 'full' })).toString() : ""
-    return(
-        <Card className="post-card transition-all"
-            onClick={()=>{router.push(`/Post?id=${data.id}`)}}
-            sx={{ cursor:"pointer", display: "flex", flexDirection: "row", gridArea: "destaque", width: "115%" }}
+    const subTexto = data.data.texto ? data.data.texto.substring(0, 150) : "";
+    return (
+        <Card style={{ ...style }} className="post-card transition-all"
+            onClick={() => { router.push(`/Post?id=${data.id}`) }}
+            sx={{ cursor: "pointer", display: "flex", flexDirection: "row", gridArea: "destaque", width: "115%" }}
         >
             <CardMedia
-                sx={{ flexBasis: "200%", backgroundPosition: "left", backgroundSize: "cover" }}
+                sx={{ maxWidth: v ? "100%" : "60%", flexBasis: "200%", backgroundPosition: "left top", backgroundSize: "cover" }}
                 image={data.data.capa}
                 title={data.data.titulo}
             />
             <Box
-                sx={{ display: 'flex', flexDirection: "column" }}
+                sx={{
+                    flexBasis: v ? "200%" : "",
+                    justifyContent: v ? "space-between" : "",
+                    maxHeight: v ? "180px" : "100%", display: 'flex', flexDirection: "column"
+                }}
             >
-                <CardHeader
-                    title={data.data.titulo}
-                />
-                <CardContent style={{ height: "100%" }}>
+                <CardHeader sx={ v? {
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-around",
+                    } : {}}>
+                    <Heading size='md'>{data.data.titulo}</Heading>
+                    <p className="text-base font-light text-gray-500 -mt-2 dark:text-gray-400"><time>{new Date(data.data.data.seconds * 1000).toLocaleDateString('pt-BR', { dateStyle: 'full' })}</time></p>
+                </CardHeader>
+                {!v && <CardContent style={{}}>
                     <Typography variant="body2" color="text.secondary" style={{
                         height: "100%",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "space-between"
                     }}>
-                        <div className="destaque-body" dangerouslySetInnerHTML={{ __html: subTexto+"..." }}></div>
-                        <Link href={`/Post?id=${data.id}`} style={{ textAlign: "right" }}>ler na integra...</Link>
+                        <div className="destaque-body" dangerouslySetInnerHTML={{ __html: v ? "" : (subTexto + "...") }}></div>
+                        <Link href={`/Post?id=${data.id}`} style={{ textAlign: "right", marginTop:"1.5rem" }}>ler na integra...</Link>
                     </Typography>
-                </CardContent>
+                </CardContent>}
 
             </Box>
         </Card >

@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 export default function () {
     return (
-        <div id="sharing" className="w-3/6 mx-auto mb-10 bg-transparent flex flex-col gap-5 ">
+        <div id="sharing" className="w-3/6 mt-32 mx-auto mb-10 bg-transparent flex flex-col gap-5 ">
         <h3>Compartilhe</h3>
             <div className="justify-between flex flex-row">
 

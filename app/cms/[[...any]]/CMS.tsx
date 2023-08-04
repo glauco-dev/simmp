@@ -578,7 +578,7 @@ export default function CMS() {
         basePath={"/cms"}
         logo="/logo incompleta branca.png"
         authentication={myAuthenticator}
-        collections={[afiliados, institPageContent, publicacaoCollection, galeriaCollection, calendarioCollection]}
+        collections={[afiliados, institPageContent, publicacaoCollection, galeriaCollection, calendarioCollection, banners]}
         firebaseConfig={firebaseConfig}
     />;
 }

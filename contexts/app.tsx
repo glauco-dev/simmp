@@ -80,9 +80,7 @@ export default function AllProviders({
     return (
         <AfiliadosProvider>
             <UserContextProvider>
-                <PostsContextProvider>
                     {children}
-                </PostsContextProvider>
             </UserContextProvider>
         </AfiliadosProvider>
     )
