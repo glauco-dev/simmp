@@ -36,7 +36,7 @@ export default function () {
                         </TimelineSeparator>
                         <TimelineContent>
                             <Link href={`/Post?id=${data.id}`}>
-                                {data.data.titulo}<time>{new Date(data.data.data.seconds * 1000).toLocaleDateString('pt-BR', { dateStyle: 'full' })}</time>
+                                {data.data.titulo+" - "}<time>{new Date(data.data.data.seconds * 1000).toLocaleDateString('pt-BR', { dateStyle: 'full' })}</time>
                             </Link></TimelineContent>
                     </TimelineItem>
                 ))}

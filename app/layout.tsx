@@ -26,7 +26,6 @@ export default function Layout({
       <Head>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css" rel="stylesheet" />
-        <script src="https://kit.fontawesome.com/5ecf56ed6f.js" crossOrigin="anonymous"></script>
       </Head>
       <body>
         <div id="slot">
@@ -35,6 +34,7 @@ export default function Layout({
             {children}
           </Providers>
         </div>
+        <script src="https://kit.fontawesome.com/5ecf56ed6f.js" crossOrigin="anonymous"></script>
         <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v17.0" nonce="MG4eJEAG"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
       </body>
