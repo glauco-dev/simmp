@@ -461,6 +461,15 @@ const publicacaoCollection = buildCollection({
     }
 })
 
+export type TGaleria = {
+    id: string,
+    data: {
+        titulo: string,
+        desc: string,
+        capa: string,
+        galeria: string[]
+    }
+}
 
 const galeriaCollection = buildCollection({
     icon: "PhotoLibrary",

@@ -3,7 +3,7 @@ import { Afiliado } from '@/contexts/app'
 
 const blacklist = ["email", "senha"]
 export default function ({dados}:{dados:Afiliado}) {
-
+    
     return(dados && <>
         <div className={"carteirinha frente  bg-accent-green text-white rounded-xl"}>
             <img src="logo completa branca layout alt.png" className="logo"/>

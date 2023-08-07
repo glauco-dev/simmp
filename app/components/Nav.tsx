@@ -77,10 +77,15 @@ export default () => {
                                     </div>
                                 </div>
                                 {user.frente.insc.length > 3 ?
-                                    <li className="items-center p-4 ml-6 text-darker-accent-green w-max flex flex-row gap-4">
+                                <li style={{color:"#94f596"}} className="items-center cursor-pointer p-4 ml-6 w-max flex flex-row gap-4">
                                         <Popover trigger="hover" placement='bottom-end'>
                                             <PopoverTrigger>
-                                                <i className="-mt-1 text-2xl cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
+                                                <Box gap={3} display={"flex"}>
+                                                    <span>
+                                                        Olá {user.frente.nome}, seja bem vindo.
+                                                    </span>
+                                                    <i className="-mt-1 text-2xl cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
+                                                </Box>
                                             </PopoverTrigger>
                                             <PopoverContent borderRadius={"12"} width={"fit-content"} padding={"2"} paddingBottom={"4"}>
                                                 <Carteirinha dados={user} />
