@@ -31,11 +31,10 @@ export default function Home() {
           <h1 id="title">Destaque</h1>
           <ODestaque></ODestaque>
         <Link href="/FME" className="fme">
-          <img src="FME-LOGO(1).png" ></img>
+          <img src="banner-FME.png" ></img>
         </Link>
         <Link href="/glrys" className="galeria">
-          <h2 className="h2">Galerias</h2>
-          <img src="logo incompleta branca.png" alt="" />
+          <img src="banner-galeria-de-fotos.png" alt="" />
         </Link>
         <div className="banners"></div>
       </div>
