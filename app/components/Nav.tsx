@@ -40,7 +40,7 @@ export default () => {
                             </svg>
                         </button>
                         <div className="hidden w-full md:block md:w-full flex flex-col   z-50" id="navbar-default">
-                            <ul className="nav-list font-medium flex justify-between flex-col p-4 md:p-0  mt-4 border border-light-accent-green rounded-lg bg-gray-50 md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                            <ul className="h-14 nav-list font-medium flex justify-between flex-col p-4 md:p-0  mt-4 border border-light-accent-green rounded-lg bg-gray-50 md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                                 <div className="flex">
                                     {
                                         [
@@ -48,8 +48,8 @@ export default () => {
                                             ["/Afiliado#afiliados", "Afiliação"],
                                             ["/Agenda#agenda", "Agenda"],
                                         ].map((link, index) => {
-                                            return (<li key={`navlink_${index}`} className="p-4 pt-6 pb-6 mx-0 hover:bg-darker-accent-green transition-all">
-                                                <Link href={`${link[0]}`} className="block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">{link[1]}</Link>
+                                            return (<li key={`navlink_${index}`} className="items-center flex hover:bg-darker-accent-green transition-all">
+                                                <Link href={`${link[0]}`} style={{marginInline:"1rem"}} className="flex  items-center py-2  text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">{link[1]}</Link>
                                             </li>)
                                         })
                                     }
@@ -91,7 +91,7 @@ export default () => {
 
                                     </li>
                                     {user.frente.insc.length > 3 ?
-                                        <li style={{ color: "#94f596" }} className="items-center cursor-pointer p-4 ml-6 w-max flex flex-row gap-4">
+                                        <li style={{ color: "#94f596" }} className="items-center cursor-pointer  w-max flex flex-row gap-4">
                                             <Popover trigger="hover" placement='bottom-end'>
                                                 <PopoverTrigger>
                                                     <Box gap={3} display={"flex"}>

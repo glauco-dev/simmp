@@ -3,9 +3,11 @@ import { Afiliado } from '@/contexts/app'
 
 const blacklist = ["email", "senha"]
 export default function ({dados}:{dados:Afiliado}) {
-    
+    const imprimirCarteira = () => {
+        window.print()
+    }
     return(dados && <>
-        <div className={"carteirinha frente  bg-accent-green text-white rounded-xl"}>
+        <div onClick={imprimirCarteira} className={"carteirinha frente  bg-accent-green text-white rounded-xl"}>
             <img src="logo completa branca layout alt.png" className="logo"/>
             {Object.keys(dados.frente).map( key => {
                 if(blacklist.includes(key)) return
