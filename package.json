@@ -30,7 +30,7 @@
     "framer-motion": "^10.15.0",
     "html2canvas": "^1.4.1",
     "leaflet": "^1.9.4",
-    "next": "13.4.12",
+    "next": "^13.4.13",
     "postcss": "8.4.27",
     "preact": "^10.16.0",
     "print-react": "^1.0.3",
