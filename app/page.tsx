@@ -11,14 +11,20 @@ import Link from "next/link";
 
 const Footer = dynamic(() => import("./components/Footer"), { ssr: false })
 
+export type TBanners  = {galeria:string[]}[]
 
 export default function Home() {
   const [posts, setData]: [PostData[], Dispatch<SetStateAction<PostData[]>>] = useState([] as PostData[]);
+  const [banners, setBanners] = useState([] as TBanners);
 
   useEffect(() => {
     CollectionFac("publicacao", [["categories", "array-contains", "noticias"]])()
       .then(docs => setData(docs.map(doc => ({ id: doc.id, data: doc.data() }) as PostData)));
-  }, [])
+    
+    CollectionFac("banners", [])()
+      .then(docs => setBanners(docs.map(doc => doc.data() ) as TBanners) );
+  
+    }, [])
 
   console.log(posts)
   return (
@@ -38,7 +44,9 @@ export default function Home() {
             height: "100%"}}>
           <img src="banner-galeria-de-fotos.png" alt="" />
         </Link>
-        <div className="banners"></div>
+        <div className="banners">
+          {banners.map(d => d.galeria.map( (b) => <img src={b}/> ))}
+        </div>
       </div>
 
       <div id="noticias">
