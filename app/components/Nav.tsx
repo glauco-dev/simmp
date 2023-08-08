@@ -91,14 +91,14 @@ export default () => {
 
                                     </li>
                                     {user.frente.insc.length > 3 ?
-                                        <li style={{ color: "#94f596" }} className="items-center cursor-pointer  w-max flex flex-row gap-4">
+                                        <li style={{ color: "#94f596" }} className="ml-4 items-center cursor-pointer  w-max flex flex-row gap-4">
                                             <Popover trigger="hover" placement='bottom-end'>
                                                 <PopoverTrigger>
                                                     <Box gap={3} display={"flex"}>
                                                         <span>
                                                             Olá {user.frente.nome}, seja bem vindo.
                                                         </span>
-                                                        <i className="-mt-1 text-2xl cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
+                                                        <i style={{display:"flex", alignItems:"center"}} className="-mt-1 flex text-2xl align-middle cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
                                                     </Box>
                                                 </PopoverTrigger>
                                                 <PopoverContent borderRadius={"12"} width={"fit-content"} padding={"2"} paddingBottom={"4"}>
