@@ -492,6 +492,13 @@ const galeriaCollection = buildCollection({
             dataType: "string",
             Field: CMSTextEditor,
         },
+        visualizacoes:  {
+            name: "Visualizações",
+            description: "Descrição da Galeria",
+            dataType: "string",
+            Field: CMSTextEditor,
+            hideFromCollection: true
+        },
         capa: {
             name: "Capa",
             description: "Imagem capa da publicação",

@@ -1,6 +1,6 @@
 "use client";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
-const dev = true;
+const dev = false;
 
 export default function Footer() {
     return (

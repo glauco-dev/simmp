@@ -8,6 +8,6 @@ const Footer = dynamic(() => import("../components/Footer"), { ssr: false })
 
 export default function () {
     return (
-        <><Breadnav></Breadnav><Posts tag="fme" className="fme-posts"></Posts><Sharing></Sharing><Footer></Footer></>
+        <><article id="fme"><Breadnav></Breadnav><Posts tag="fme" className="fme-posts"></Posts><Sharing></Sharing></article><Footer></Footer></>
     )
 }

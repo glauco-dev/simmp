@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction, useContext, useEffect, useState } from "react
 import PostCard from "./components/PostCard";
 import CollectionFac from "@/contexts/generics";
 import Sharing from "./components/sharing";
+import Link from "next/link";
 
 const Footer = dynamic(() => import("./components/Footer"), { ssr:false })
 
@@ -29,11 +30,13 @@ export default function Home() {
       <div id="landing">
           <h1 id="title">Destaque</h1>
           <ODestaque></ODestaque>
-        <img src="FME-LOGO(1).png" className="fme"></img>
-        <a href="/Galerias" className="galeria">
+        <Link href="/FME" className="fme">
+          <img src="FME-LOGO(1).png" ></img>
+        </Link>
+        <Link href="/Galerias" className="galeria">
           <h2 className="h2">Galerias</h2>
           <img src="logo incompleta branca.png" alt="" />
-        </a>
+        </Link>
         <div className="banners"></div>
       </div>
 
