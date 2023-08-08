@@ -40,7 +40,7 @@ const banners = buildCollection({
     name: "Banners",
     permissions: {
         edit: true,
-        create: false,
+        create: true,
         delete: true
     },
     properties: {
