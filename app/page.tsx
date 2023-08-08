@@ -33,7 +33,7 @@ export default function Home() {
         <Link href="/FME" className="fme">
           <img src="FME-LOGO(1).png" ></img>
         </Link>
-        <Link href="/Galerias" className="galeria">
+        <Link href="/glrys" className="galeria">
           <h2 className="h2">Galerias</h2>
           <img src="logo incompleta branca.png" alt="" />
         </Link>
