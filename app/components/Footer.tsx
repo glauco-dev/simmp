@@ -49,7 +49,7 @@ export default function Footer() {
                 </div>
             </div>
             
-            <div className="container flex flex-row w-full px-12 mx-auto mt-10 mb-5 justify-between">
+            <div className="items-center container flex flex-row w-full px-12 mx-auto mt-10 mb-5 justify-between">
                 <div className="col l10" style={{flexBasis: "15%"}}>
                     <p>Copyright 2023 © - Todos os direitos reservados<br />
                         SIMMP - Sindicato do Magistério Municipal Público de Vitória da Conquista<br />

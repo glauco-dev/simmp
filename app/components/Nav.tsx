@@ -76,29 +76,44 @@ export default () => {
                                         </ul>
                                     </div>
                                 </div>
-                                {user.frente.insc.length > 3 ?
-                                <li style={{color:"#94f596"}} className="items-center cursor-pointer p-4 ml-6 w-max flex flex-row gap-4">
-                                        <Popover trigger="hover" placement='bottom-end'>
-                                            <PopoverTrigger>
-                                                <Box gap={3} display={"flex"}>
-                                                    <span>
-                                                        Olá {user.frente.nome}, seja bem vindo.
-                                                    </span>
-                                                    <i className="-mt-1 text-2xl cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
-                                                </Box>
-                                            </PopoverTrigger>
-                                            <PopoverContent borderRadius={"12"} width={"fit-content"} padding={"2"} paddingBottom={"4"}>
-                                                <Carteirinha dados={user} />
-                                            </PopoverContent>
-                                            <Box onClick={logout} className="cursor-pointer block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">Logout</Box>
+                                <div className="flex">
 
-                                        </Popover>
+                                    <li className="items-center text-white cursor-pointer w-max flex flex-row gap-4">
+                                        <a className="items-baseline"  href="https://www.instagram.com/simmp.sind" target="_blank" rel="noopener noreferrer">
+                                            <i className="fa-brands fa-instagram"></i>
+                                        </a>
                                     </li>
-                                    :
-                                    <li className=" items-center  p-4 ml-6 text-darker-accent-green w-max flex flex-row gap-4">
-                                        <Link href={`/Afiliado?login=true#login`} className="block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">Login</Link>
+                                    <li className="items-center text-white cursor-pointer ml-4 w-max flex flex-row gap-4">
+                                        <a className="items-baseline" href="http://www.facebook.com/simmpvc" target="_blank" rel="noopener noreferrer">
+                                            <i className="fa-brands fa-facebook"></i>
+
+                                        </a>
+
                                     </li>
-                                }
+                                    {user.frente.insc.length > 3 ?
+                                        <li style={{ color: "#94f596" }} className="items-center cursor-pointer p-4 ml-6 w-max flex flex-row gap-4">
+                                            <Popover trigger="hover" placement='bottom-end'>
+                                                <PopoverTrigger>
+                                                    <Box gap={3} display={"flex"}>
+                                                        <span>
+                                                            Olá {user.frente.nome}, seja bem vindo.
+                                                        </span>
+                                                        <i className="-mt-1 text-2xl cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
+                                                    </Box>
+                                                </PopoverTrigger>
+                                                <PopoverContent borderRadius={"12"} width={"fit-content"} padding={"2"} paddingBottom={"4"}>
+                                                    <Carteirinha dados={user} />
+                                                </PopoverContent>
+                                                <Box onClick={logout} className="cursor-pointer block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">Logout</Box>
+
+                                            </Popover>
+                                        </li>
+                                        :
+                                        <li className=" items-center  p-4 ml-6 text-darker-accent-green w-max flex flex-row gap-4">
+                                            <Link href={`/Afiliado?login=true#login`} className="block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">Login</Link>
+                                        </li>
+                                    }
+                                </div>
                             </ul>
                         </div>
                     </div>
