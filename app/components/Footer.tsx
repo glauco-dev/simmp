@@ -48,7 +48,14 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            {!dev && <MapContainer center={[-14.85238, -40.83086]} zoom={13} scrollWheelZoom={false}>
+            
+            <div className="container flex flex-row w-full px-12 mx-auto mt-10 mb-5 justify-between">
+                <div className="col l10" style={{flexBasis: "15%"}}>
+                    <p>Copyright 2023 © - Todos os direitos reservados<br />
+                        SIMMP - Sindicato do Magistério Municipal Público de Vitória da Conquista<br />
+                        Vitória da Conquista - BA</p>
+                </div>
+                {!dev && <MapContainer center={[-14.85238, -40.83086]} zoom={13} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -59,12 +66,6 @@ export default function Footer() {
                     </Popup>
                 </Marker>
             </MapContainer>}
-            <div className="container flex flex-row w-full px-12 mx-auto mt-10 mb-5 justify-between">
-                <div className="col l10">
-                    <p>Copyright 2023 © - Todos os direitos reservados<br />
-                        SIMMP - Sindicato do Magistério Municipal Público de Vitória da Conquista<br />
-                        Vitória da Conquista - BA</p>
-                </div>
                 <div className="flex-col l2">
                     <img className="responsive-img w-40" src="logo completa branca layout alt.png" alt="SIMMP" title="SIMMP" />
                 </div>

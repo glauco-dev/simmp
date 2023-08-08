@@ -13,6 +13,8 @@ export default function Posts({ tag, className }: { tag: string, className:strin
             .then(docs => setData(docs.map(doc => ({ id: doc.id, data: doc.data() }) as PostData)));
     }, [])
 
+    if(data.length ==0)
+    return (<h2>Não há posts ainda nessa categoria</h2>) 
     return <div className={className}>
         {data.map((post: PostData, index) => (
             <PostCard v={false} style={{}} key={`post_card_${index}`} data={post}></PostCard>
