@@ -27,8 +27,10 @@ export default function() {
                         return (
                             <Link href={`/Galeria?id=${doc.id}`} style={{height:300, width:300, backgroundImage: `url(${doc.data.capa})` }} className="galerias-item">
                                 <h3>
-                                    {doc.data.titulo}
-                                    <small>{doc.data.galeria.length}</small>
+                                    <span>
+                                        {doc.data.titulo}
+                                    </span>
+                                    <small style={{position:"absolute", marginRight:'30px'}}>{doc.data.galeria.length} fotos</small>
                                 </h3>
                                 
                             </Link>
