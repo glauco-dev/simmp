@@ -31,31 +31,24 @@ export default function ({dados}:{dados:Afiliado}) {
     const [foto, setFoto] = useState(dados.frente.foto);
 
     return(dados && <>
-        <div className={"carteirinha frente  bg-accent-green text-white rounded-xl"}>
-            <img src="logo completa branca layout alt.png" className="logo"/>
+        <div className={"carteirinha frente "}>
             {Object.keys(dados.frente).map( key => {
                 if(blacklist.includes(key)) return
                 if(key == "foto"){// @ts-ignore
                     return <img key={key} className={key} src={foto} />
                 }// @ts-ignore
-                return <div key={key} className={key}><small>{LabelsMap[key]}</small>{dados.frente[key]}</div>
+                return <div key={key} className={key}>{dados.frente[key]}</div>
             })}
         </div>
-        <div className={"carteirinha atras bg-accent-green text-white rounded-xl"}>
+        <div className={"carteirinha atras "}>
             {Object.keys(dados.atras).map( key => {
                 if(blacklist.includes(key)) return
                 if(key == "assinatura_presidente")
                     return (
-                        <div key={key} className="assinatura-wrapper">
-
-                        <div>
-                            <img className="w-full" style={{height: "2px"}} src={dados.atras[key]} />
-                            <small>Assinatura do(a) Presidente</small>
-                        </div>
-                    </div>
+                            <img src={dados.atras[key]} />
                     )
                 // @ts-ignore
-                return <div key={key} className={key}><small>{LabelsMap[key]}</small>{dados.atras[key]}</div>
+                return <div key={key} className={key}>{dados.atras[key]}</div>
             })}
             
         </div>
