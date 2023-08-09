@@ -6,6 +6,26 @@ import Link from 'next/link';
 
 const blacklist = ["email", "senha"]
 
+const LabelsMap = {
+        nome: "Nome",
+        email: "Email",
+        foto: "Goto",
+        cargo: "Cargo",
+        insc: "N° Insc.",
+        cpf: "CPF",
+        rg: "RG",
+        nascimento: "Cascimento",
+        matricula: "Matrícula",
+        emissao: "D. Emissão",
+        filiacao: "Filiação",
+        naturalidade: "Naturalidade",
+        uf: "UF",
+        endereco: "Endereço",
+        bairro: "Bairro",
+        cep: "CEP",
+        cidade: "Cidade",
+        lote: "Lote",
+}
 
 export default function ({dados}:{dados:Afiliado}) {
     const [foto, setFoto] = useState(dados.frente.foto);
@@ -18,24 +38,26 @@ export default function ({dados}:{dados:Afiliado}) {
                 if(key == "foto"){// @ts-ignore
                     return <img key={key} className={key} src={foto} />
                 }// @ts-ignore
-                return <div key={key} className={key}><small>{key}</small>{dados.frente[key]}</div>
+                return <div key={key} className={key}><small>{LabelsMap[key]}</small>{dados.frente[key]}</div>
             })}
         </div>
         <div className={"carteirinha atras bg-accent-green text-white rounded-xl"}>
             {Object.keys(dados.atras).map( key => {
                 if(blacklist.includes(key)) return
                 if(key == "assinatura_presidente")
-                    return <img src={dados.atras[key]} />
-                // @ts-ignore
-                return <div key={key} className={key}><small>{key}</small>{dados.atras[key]}</div>
-            })}
-            <div className="assinatura-wrapper">
+                    return (
+                        <div key={key} className="assinatura-wrapper">
 
-                <div>
-                    <div className="w-full" style={{height: "2px"}}></div>
-                    <small>Assinatura do(a) Presidente</small>
-                </div>
-            </div>
+                        <div>
+                            <img className="w-full" style={{height: "2px"}} src={dados.atras[key]} />
+                            <small>Assinatura do(a) Presidente</small>
+                        </div>
+                    </div>
+                    )
+                // @ts-ignore
+                return <div key={key} className={key}><small>{LabelsMap[key]}</small>{dados.atras[key]}</div>
+            })}
+            
         </div>
         </>
     )

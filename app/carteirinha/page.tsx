@@ -9,7 +9,7 @@ export default function () {
     return (
 
         <div className="flex flex-col">
-        <div id="carteirinha-wrapper flex-col w-full" style={{display:'flex'}}>
+        <div id="carteirinha-wrapper" className=" flex-col w-full" style={{display:'flex'}}>
                 <Carteirinha dados={user}></Carteirinha>
             </div>
             <h2 id="printing-message" className="cursor-pointer flex justify-end mt-4 text-accent-green" onClick={() => { window.print(); }}>

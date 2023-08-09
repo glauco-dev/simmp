@@ -324,6 +324,11 @@ const afiliados = buildCollection({
             validation: { required: true },
             dataType: "string"
         },
+        bairro: {
+            name: "Bairro",
+            validation: { required: true },
+            dataType: "string"
+        },
         cidade: {
             name: "Cidade",
             validation: { required: true },
