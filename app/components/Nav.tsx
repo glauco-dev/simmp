@@ -102,7 +102,7 @@ export default () => {
                                                         <span className="ml-4 mr-2">
                                                         Carteirinha
                                                         </span>
-                                                        <i className="text-2xl align-middle fa-regular fa-id-card"></i>
+                                                        <i className="fa-regular fa-id-card"></i>
                                                         </Link>
                                                    
                                                     </Box>
