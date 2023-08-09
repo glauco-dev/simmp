@@ -9,6 +9,7 @@
 body
     -webkit-print-color-adjust: exact !important
     print-color-adjust: exact !important
+    max-width: 100vw
 
 a[href="https://firecms.co?utm_source=drawer"]
     display: none
@@ -126,10 +127,13 @@ nav
         margin-inline: auto
         justify-content: center
         grid-template-rows: 1fr
-        grid-template-areas:    "h1    " "destaque" "galeria " "fme   "
+        grid-template-areas:    "h1    " "destaque" "galeria " "fme   " "banners"
         padding-inline: 4vw
         &>.destaque
             min-height: 50vh
+            font-size: 100%
+            flex-direction: column
+        
 
     
     justify-content: space-between
@@ -363,6 +367,8 @@ nav
     margin-inline: auto
 
 #noticias
+    margin-top: 4rem
+    max-width: 100vw
     h2
         font-size: 14pt
         font-family: "glober"

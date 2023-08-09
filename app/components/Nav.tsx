@@ -96,8 +96,10 @@ export default () => {
                                                     <Box gap={3} display={"flex"}>
                                                     <Link
                                                         href={"/carteirinha"}
+                                                        style={{display: "block",
+                                                            minWidth: "40px"}}
                                                     >
-                                                        <i className="-mt-1 pt-1 flex text-2xl align-middle cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
+                                                        <i className="-mt-1 pt-1 text-2xl align-middle cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
                                                         </Link>
                                                    
                                                     </Box>

@@ -31,7 +31,7 @@ export default function Home() {
 
     <>
       <main className="container flex min-h-screen flex-col items-center justify-between p-2 pt-10
-      w-padrao-container
+      lg:w-padrao-container
       mx-auto">
         <div id="landing">
           <h1 id="title">Destaque</h1>
@@ -53,7 +53,7 @@ export default function Home() {
         <h2>
           Notícias
         </h2>
-        <SimpleGrid columns={[2, null, 3]} spacing='25px'>
+        <SimpleGrid minChildWidth='200px' spacing='25px'>
           {posts.map((post, index) => (
             <Box key={`post_${index}`} height='400px'>
               <PostCard v={true} style={{ width: "100%", flexDirection: "column" }} data={post}></PostCard>
