@@ -97,7 +97,7 @@ export default () => {
                                                     <Link
                                                         href={"/carteirinha"}
                                                     >
-                                                        <i style={{display:"flex", alignItems:"center"}} className="-mt-1 flex text-2xl align-middle cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
+                                                        <i className="-mt-1 pt-1 flex text-2xl align-middle cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
                                                         </Link>
                                                    
                                                     </Box>
