@@ -99,7 +99,7 @@ export default () => {
                                                         style={{display: "block",
                                                             minWidth: "40px"}}
                                                     >
-                                                        <i className="-mt-1 pt-1 text-2xl align-middle cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
+                                                        <i className="text-2xl align-middle fa-regular fa-id-card"></i>
                                                         </Link>
                                                    
                                                     </Box>
