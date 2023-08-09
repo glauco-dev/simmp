@@ -8,6 +8,7 @@ import firebase_app from "../config";
 import Carteirinha from "./Carteirinha";
 import { Box, Popover, PopoverContent, PopoverTrigger } from "@chakra-ui/react";
 import { UserContext, __AUTH_CONTENT__, defaultUserData } from "../../contexts/user";
+import {FaIdCard, FaInstagram, FaFacebook} from 'react-icons/fa'
 
 export default () => {
     const auth = getAuth(firebase_app);
@@ -80,13 +81,12 @@ export default () => {
 
                                     <li className="items-center text-white cursor-pointer w-max flex flex-row gap-4">
                                         <a className="items-baseline flex"  href="https://www.instagram.com/simmp.sind" target="_blank" rel="noopener noreferrer">
-                                            <i className="fa-brands fa-instagram"></i>
+                                        <FaInstagram/>
                                         </a>
                                     </li>
                                     <li className="items-center text-white cursor-pointer ml-4 w-max flex flex-row gap-4">
                                         <a className="items-baseline flex" href="http://www.facebook.com/simmpvc" target="_blank" rel="noopener noreferrer">
-                                            <i className="fa-brands fa-facebook"></i>
-
+                                        <FaFacebook/>
                                         </a>
 
                                     </li>
@@ -99,10 +99,7 @@ export default () => {
                                                         style={{display: "block",
                                                             minWidth: "40px"}}
                                                     >
-                                                        <span className="ml-4 mr-2">
-                                                        Carteirinha
-                                                        </span>
-                                                        <i className="fa-regular fa-id-card"></i>
+                                                        <FaIdCard/>
                                                         </Link>
                                                    
                                                     </Box>
