@@ -91,7 +91,7 @@ export default () => {
 
                                     </li>
                                     {user.frente.insc.length > 3 ?
-                                        <li style={{ color: "white" }} className="mx-4 items-center cursor-pointer  w-max flex flex-row gap-4">
+                                        <li style={{ color: "white" }} className="mx-4 items-baseline cursor-pointer  w-max flex flex-row gap-4">
                                             <Popover trigger="hover" placement='bottom-end'>
                                                     <Box gap={3} display={"flex"}>
                                                     <Link
@@ -109,7 +109,7 @@ export default () => {
                                             </Popover>
                                         </li>
                                         :
-                                        <li className=" items-center  p-4 ml-6 text-darker-accent-green w-max flex flex-row gap-4">
+                                        <li className=" items-baseline p-4 ml-6 text-darker-accent-green w-max flex flex-row gap-4">
                                             <Link href={`/Afiliado?login=true#login`} className="block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">Login</Link>
                                         </li>
                                     }
