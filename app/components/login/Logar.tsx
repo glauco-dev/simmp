@@ -35,9 +35,18 @@ function Page({cadastrar}:{cadastrar:TsetLoginTab}) {
         }
     }
 
+    function formKeyUp(event:any) {
+
+        if (event.charCode === 13) {
+    
+          handleForm(event);
+    
+        }
+    
+    }
 
     return (
-        <div id="login" className={s['form-group']}>
+        <div id="login" className={s['form-group']} onKeyUp={formKeyUp}>
             <Breadnav></Breadnav>
             <span>Ainda não se afiliou? <span className="login-form-alt" onClick={() => {cadastrar()}}>Preencha esse cadastro</span></span>
             <span> {loginError} </span>
