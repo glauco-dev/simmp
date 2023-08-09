@@ -99,6 +99,7 @@ export default () => {
                                                         style={{display: "block",
                                                             minWidth: "40px"}}
                                                     >
+                                                        Carteirinha
                                                         <i className="text-2xl align-middle fa-regular fa-id-card"></i>
                                                         </Link>
                                                    
