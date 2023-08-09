@@ -26,7 +26,7 @@ export default () => {
     console.log(usePathname());
     return (
         <>
-            <div className="w-full bg-accent-green py-6">
+            <div id="landing-logo" className="w-full bg-accent-green py-6">
                 <Link href="/"><img src="/logo completa branca.png" alt="" className={`mx-auto my-8`} style={{ maxHeight: '100px' }} /></Link></div>
             {usePathname() !== "/cms" &&
                 <nav id="website-nav" style={{ border: "#4CAF50 solid 1px" }}
@@ -79,12 +79,12 @@ export default () => {
                                 <div className="flex">
 
                                     <li className="items-center text-white cursor-pointer w-max flex flex-row gap-4">
-                                        <a className="items-baseline"  href="https://www.instagram.com/simmp.sind" target="_blank" rel="noopener noreferrer">
+                                        <a className="items-baseline flex"  href="https://www.instagram.com/simmp.sind" target="_blank" rel="noopener noreferrer">
                                             <i className="fa-brands fa-instagram"></i>
                                         </a>
                                     </li>
                                     <li className="items-center text-white cursor-pointer ml-4 w-max flex flex-row gap-4">
-                                        <a className="items-baseline" href="http://www.facebook.com/simmpvc" target="_blank" rel="noopener noreferrer">
+                                        <a className="items-baseline flex" href="http://www.facebook.com/simmpvc" target="_blank" rel="noopener noreferrer">
                                             <i className="fa-brands fa-facebook"></i>
 
                                         </a>
@@ -93,17 +93,15 @@ export default () => {
                                     {user.frente.insc.length > 3 ?
                                         <li style={{ color: "#94f596" }} className="ml-4 items-center cursor-pointer  w-max flex flex-row gap-4">
                                             <Popover trigger="hover" placement='bottom-end'>
-                                                <PopoverTrigger>
                                                     <Box gap={3} display={"flex"}>
-                                                        <span>
-                                                            Olá {user.frente.nome}, seja bem vindo.
-                                                        </span>
+                                                    <Link
+                                                        href={"/carteirinha"}
+                                                    >
                                                         <i style={{display:"flex", alignItems:"center"}} className="-mt-1 flex text-2xl align-middle cursor-pointer transition-all hover:scale-105 fa-regular fa-id-card"></i>
+                                                        </Link>
+                                                   
                                                     </Box>
-                                                </PopoverTrigger>
-                                                <PopoverContent borderRadius={"12"} width={"fit-content"} padding={"2"} paddingBottom={"4"}>
-                                                    <Carteirinha dados={user} />
-                                                </PopoverContent>
+                                                
                                                 <Box onClick={logout} className="cursor-pointer block py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 ">Logout</Box>
 
                                             </Popover>

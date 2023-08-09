@@ -2,69 +2,15 @@
 import { Afiliado } from '@/contexts/app'
 import React, { useEffect, useRef, useState } from 'react'
 import html2canvas from 'html2canvas';
+import Link from 'next/link';
 
 const blacklist = ["email", "senha"]
-function fetchImageAndDownload (url:string) {
-         // Anchor href 
 
-    const img = document.createElement("img");   // Create in-memory image
-    img.addEventListener("load", () => {
-        const a = document.createElement("a");   // Create in-memory anchor
-        a.href = img.src;                        // href toward your server-image
-        a.click();                               // Trigger click (download)
-    });
-    img.src = 'fetchImage?url='+ url;       // Request image from your server
-    return img
-}
-
-
-function loadXHR(url:string) {
-
-    return new Promise(function(resolve, reject) {
-        try {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", url);
-            xhr.responseType = "blob";
-            xhr.onerror = function() {reject("Network error.")};
-            xhr.onload = function() {
-                if (xhr.status === 200) {resolve(xhr.response)}
-                else {reject("Loading error:" + xhr.statusText)}
-            };
-            xhr.send();
-        }
-        catch(err:any) {reject(err.message)}
-    });
-}
 
 export default function ({dados}:{dados:Afiliado}) {
     const [foto, setFoto] = useState(dados.frente.foto);
-    
 
-    useEffect(()=>{
-        console.log(foto);
-        fetch(foto)
-        .then(function(response) {
-            return response.blob()
-        }).then(function(blob:any) {
-            setFoto(URL.createObjectURL(blob));
-        });
-
-    },[])
-
-    const imprimirCarteira = () => {
-        let d = document.querySelector("#carteirinha-el");
-        if(d){
-            html2canvas(d as HTMLElement, {allowTaint:true}).then(canvas => {
-                var link = document.createElement('a');
-                link.download = 'carteirinha.png';
-                console.log(canvas.toDataURL);
-                link.href = canvas.toDataURL("image/jpeg");
-                link.click();
-            })
-        } 
-    }
-
-    return(dados && <div id="carteirinha-el" onClick={imprimirCarteira}>
+    return(dados && <>
         <div className={"carteirinha frente  bg-accent-green text-white rounded-xl"}>
             <img src="logo completa branca layout alt.png" className="logo"/>
             {Object.keys(dados.frente).map( key => {
@@ -91,6 +37,6 @@ export default function ({dados}:{dados:Afiliado}) {
                 </div>
             </div>
         </div>
-        </div>
+        </>
     )
 }

@@ -6,6 +6,9 @@
     scroll-behavior: smooth
     scroll-margin-top: 6rem
     
+body
+    -webkit-print-color-adjust: exact !important
+    print-color-adjust: exact !important
 
 a[href="https://firecms.co?utm_source=drawer"]
     display: none
@@ -50,6 +53,24 @@ nav
     border: #4CAF50 solid 1px
     font-size: 16pt !important
     font-family: glober
+    @media print
+        display: none
+
+#landing-logo, #printing-message
+    @media print
+        display: none
+
+#printing-message
+    font-size: 3rem
+    margin-bottom: 1rem
+    font-family: "glober light"
+    color: #2d2d2d
+    text-decoration: underline
+    text-decoration-color: #0d700ed6
+    text-decoration-style: dotted
+    text-decoration-thickness: 5px
+
+        
 #website-nav
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)
 
@@ -217,8 +238,8 @@ nav
         line-height: 4rem
 
 @media print 
-    #carteirinha-el
-        display: grid
+    nav
+        display: none
 
 .texto-afiliar
     h3
@@ -264,6 +285,8 @@ nav
         color: #2d2d2d
         font-family: glober
 
+#carteirinha-impressao
+    
 
 .frente
     // grid-template-areas: 
