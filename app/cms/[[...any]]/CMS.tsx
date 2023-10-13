@@ -8,7 +8,8 @@ import {
     buildCollection,
     buildProperty,
     EntityReference,
-    FirebaseCMSApp
+    FirebaseCMSApp,
+    PropertyPreviewProps
 } from "firecms";
 import CMSTextEditor from '@/app/components/CMSTextEditor'
 
@@ -129,9 +130,9 @@ const institPageContent = buildCollection({
                             storeUrl: true
                         }
                     },
-                    
+
                 }
-                
+
             }
         },
 
@@ -161,7 +162,7 @@ const institPageContent = buildCollection({
                             storeUrl: true
                         }
                     },
-                    
+
                 }
             }
         },
@@ -170,7 +171,7 @@ const institPageContent = buildCollection({
             name: "Convênios",
             description: "Convênios para afiliados",
             dataType: "array",
-            of:{
+            of: {
                 dataType: "map",
                 name: "Convênio",
                 properties: {
@@ -191,13 +192,13 @@ const institPageContent = buildCollection({
             }
         },
 
-        vantagensAfiliado:{
+        vantagensAfiliado: {
             name: "Vantagens como afiliado",
-            description:"Vantagens como afiliado ao sindicato",
+            description: "Vantagens como afiliado ao sindicato",
             dataType: 'string',
             Field: CMSTextEditor,
         }
-        
+
     }
 });
 
@@ -212,7 +213,7 @@ export type TAfiliado = {
     matricula: string,
     lote: string,
     filiacao: string,
-    email:string,
+    email: string,
     senha: string,
     telefone: string,
     nascimento: string,
@@ -225,6 +226,16 @@ export type TAfiliado = {
     admissao: string,
     assinatura: string
 }
+
+export function CustomPasswordPreview({
+    value, property, size
+}: PropertyPreviewProps<string>)
+{
+    return (
+        value ? <strong>**********</strong>: <></>
+    );
+}
+
 const afiliados = buildCollection({
     icon: "ContactMail",
     path: "afiliados",
@@ -236,16 +247,16 @@ const afiliados = buildCollection({
         delete: true
     },
     properties: {
-        nome:{
+        nome: {
             name: "Nome Completo",
             validation: { required: true },
             dataType: "string"
         },
         ativo: {
-            name:"Ativo",
+            name: "Ativo",
             dataType: 'boolean'
         },
-        foto:{
+        foto: {
             name: "Foto",
             dataType: "string",
             storage: {
@@ -260,7 +271,7 @@ const afiliados = buildCollection({
                 storeUrl: true
             }
         },
-        rg:{
+        rg: {
             name: "RG",
             validation: { required: true },
             dataType: "string"
@@ -275,7 +286,7 @@ const afiliados = buildCollection({
             validation: { required: true },
             dataType: "string"
         },
-        insc:{
+        insc: {
             name: "Inscrição sindical",
             dataType: "string"
         },
@@ -302,13 +313,14 @@ const afiliados = buildCollection({
         senha: {
             name: "Senha",
             validation: { required: true },
-            dataType: "string"
+            dataType: "string",
+            Preview: CustomPasswordPreview
         },
         telefone: {
             name: "Telefone",
             validation: { required: true },
             dataType: "string"
-        }, 
+        },
         nascimento: {
             name: "Nascimento",
             validation: { required: true },
@@ -354,9 +366,9 @@ const afiliados = buildCollection({
             validation: { required: true },
             dataType: "date"
         },
-        assinatura:{
+        assinatura: {
             name: "Assinatura",
-            validation: {required: true},
+            validation: { required: true },
             dataType: "string",
             storage: {
                 storagePath: "assinaturas",
@@ -497,7 +509,7 @@ const galeriaCollection = buildCollection({
             dataType: "string",
             Field: CMSTextEditor,
         },
-        visualizacoes:  {
+        visualizacoes: {
             name: "Visualizações",
             description: "Descrição da Galeria",
             dataType: "string",
@@ -548,8 +560,8 @@ const calendarioCollection = buildCollection({
         delete: true
     },
     properties: {
-                    
-                    
+
+
         titulo: {
             name: "Título",
             description: "Título para Calendário anual",
@@ -576,9 +588,9 @@ const calendarioCollection = buildCollection({
                 storeUrl: true
             }
         },
-        
+
     }
-    
+
 })
 
 
