@@ -314,6 +314,7 @@ const afiliados = buildCollection({
             name: "Senha",
             validation: { required: true },
             dataType: "string",
+            readOnly: true,
             Preview: CustomPasswordPreview
         },
         telefone: {
