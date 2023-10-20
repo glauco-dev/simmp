@@ -412,6 +412,16 @@ const publicacaoCollection = buildCollection({
             dataType: "string"
         },
 
+        destaque: {
+            name: "Destaque (?)",
+            dataType: "boolean",
+        },
+        texto: {
+            name: "Texto",
+            description: "Corpo de texto da publicação",
+            dataType: "string",
+            Field: CMSTextEditor,
+        },
         data: {
             name: "Data de publicação",
             dataType: "date",
@@ -433,16 +443,6 @@ const publicacaoCollection = buildCollection({
                     agenda: "Agenda",
                 }
             }
-        },
-        destaque: {
-            name: "Destaque (?)",
-            dataType: "boolean",
-        },
-        texto: {
-            name: "Texto",
-            description: "Corpo de texto da publicação",
-            dataType: "string",
-            Field: CMSTextEditor,
         },
         capa: {
             name: "Capa",
