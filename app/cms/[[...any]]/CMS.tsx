@@ -10,7 +10,7 @@ import {
     EntityReference,
     FirebaseCMSApp,
     PropertyPreviewProps
-} from "firecms";
+} from "../../firecms";
 import CMSTextEditor from '@/app/components/CMSTextEditor'
 
 import "typeface-rubik";
