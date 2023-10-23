@@ -1,6 +1,7 @@
 import d from './simmpcom_post_archive_db';
 import { PostData } from '@/contexts/posts';
 import {filter, from} from 'rxjs'
+import { NextResponse } from 'next/server';
 
 var data:any = [...d];
 
@@ -31,5 +32,5 @@ data.filter((d:(string|number)[]) => d[d.length-2] == 'attachment')
 
 
 export async function GET(request: Request) {
-    return Response.json({ data: postsData })
+    return NextResponse.json({ data: postsData })
 }
