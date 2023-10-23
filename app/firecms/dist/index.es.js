@@ -1,3 +1,4 @@
+"use client";
 import { jsx as n, jsxs as C, Fragment as q } from "@emotion/react/jsx-runtime";
 import { AdapterDateFns as hs } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider as gs } from "@mui/x-date-pickers/LocalizationProvider";
