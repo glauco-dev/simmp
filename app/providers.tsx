@@ -10,6 +10,7 @@ import {
   createTheme as muiCreateTheme,
   THEME_ID,
 } from '@mui/material/styles';
+import { PostsContextProvider } from '@/contexts/posts';
 
 const chakraTheme = chakraExtendTheme();
 const materialTheme = muiCreateTheme();
@@ -25,7 +26,9 @@ export function Providers({
         <MaterialThemeProvider theme={{ [THEME_ID]: materialTheme }}>
           <CssBaseline />
           <AppContext >
+          <PostsContextProvider>
               {children}
+          </PostsContextProvider>
           </AppContext>
         </MaterialThemeProvider>
       </ChakraProvider>

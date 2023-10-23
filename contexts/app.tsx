@@ -78,10 +78,11 @@ export default function AllProviders({
     children: React.ReactNode
 }) {
     return (
-        <AfiliadosProvider>
-            <UserContextProvider>
-                    {children}
-            </UserContextProvider>
-        </AfiliadosProvider>
+        
+            <AfiliadosProvider>
+                <UserContextProvider>
+                        {children}
+                </UserContextProvider>
+            </AfiliadosProvider>
     )
 }

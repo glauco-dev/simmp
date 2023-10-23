@@ -25,6 +25,7 @@ export const __NO_POSTS_ERROR__ = "No posts avaliable";
 export const PostsContext = createContext({ posts: [] as PostData[] });
 
 export function PostsContextProvider(props: TContextProps) {
+    
     const [posts, setPosts] = useState([] as PostData[])
     const [listeners, setListeners] = useState([
         (posts: QuerySnapshot<DocumentData>[]) => {
@@ -37,6 +38,14 @@ export function PostsContextProvider(props: TContextProps) {
             // }
         },
     ]);
+    
+    fetch('/api')
+    .then(response => {
+        if(response.ok)
+            response.json().then(data =>{
+                setPosts(data);
+            })
+    });
     // 
 
     useEffect(() => {
