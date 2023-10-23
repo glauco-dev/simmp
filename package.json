@@ -25,7 +25,6 @@
     "autoprefixer": "10.4.14",
     "encoding": "^0.1.13",
     "firebase": "^9.23.0",
-    "firecms": "^2.0.5",
     "flowbite": "^1.8.1",
     "framer-motion": "^10.15.0",
     "html-to-image": "^1.11.11",
