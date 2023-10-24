@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { FieldDescription, FieldProps } from "../firecms";
+import { FieldDescription, FieldProps } from "../../firecms";
 import { Editor } from "@tinymce/tinymce-react";
 
 
