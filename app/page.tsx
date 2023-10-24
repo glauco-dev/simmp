@@ -18,32 +18,11 @@ export type TBanners = { galeria: string[] }[]
 
 export default function Home() {
 
-  // fetch('/api')
-  //   .then(response => {
-  //     if (response.ok)
-  //       response.json().then(result => {
-  //         let { data } = result;
-  //         console.log(data);
-  //         data.forEach((post: PostData) => {
-  //            setDoc(doc(getFirestore(firebase_app), "publicacao", post.id), post.data)
-  //         })
-  //       })
-  //   });
-  // return <></>
-
   const [posts, setData]: [PostData[], Dispatch<SetStateAction<PostData[]>>] = useState([] as PostData[]);
   const [banners, setBanners] = useState([] as TBanners);
 
   useEffect(() => {
 
-    // fetch('/api')
-    // .then(response => {
-    //   if (response.ok)
-    //     response.json().then(result => {
-    //       let { data } = result;
-    //       setData(data);
-    //     })
-    // });
 
     getDocs(query(collection(db, "publicacao"), orderBy("data.seconds", 'desc'), limit(20)))
       .then(result => {
