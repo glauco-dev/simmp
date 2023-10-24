@@ -66,6 +66,51 @@ export const defaultUserData = {
     }
 }
 
+export type TGaleria = {
+    id: string,
+    data: {
+        titulo: string,
+        desc: string,
+        capa: string,
+        galeria: string[]
+    }
+}
+export type TPublicacao = {
+    titulo: string,
+    data: string,
+    categories: string[],
+    destaque: boolean,
+    texto: string,
+    capa: string,
+    galeria: string[]
+}
+
+export type TAfiliado = {
+    nome: string,
+    ativo: boolean,
+    foto: string,
+    rg: string,
+    cpf: string,
+    naturalidade: string,
+    insc: string,
+    matricula: string,
+    lote: string,
+    filiacao: string,
+    email: string,
+    senha: string,
+    telefone: string,
+    nascimento: string,
+    endereco: string,
+    uf: string,
+    cidade: string,
+    cep: string,
+    formacao: string,
+    cargo: string,
+    admissao: string,
+    assinatura: string
+}
+
+
 
 
 

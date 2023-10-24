@@ -1,6 +1,6 @@
 "use client";
 
-import { TGaleria } from "@/app/cms/[[...any]]/CMS";
+import { TGaleria } from "@/contexts/app";
 import firebase_app from "@/app/config";
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay, SimpleGrid, useDisclosure } from "@chakra-ui/react";
 import { doc, getDoc, getFirestore } from "firebase/firestore";

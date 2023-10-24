@@ -2,7 +2,7 @@
 
 import CollectionFac from "@/contexts/generics";
 import { useEffect, useState } from "react";
-import { TGaleria } from "../cms/[[...any]]/CMS";
+import { TGaleria } from "@/contexts/app";
 import { Box, Container, SimpleGrid } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import Sharing from "../components/sharing";
